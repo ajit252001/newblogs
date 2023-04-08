@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require('mongoose');
+const port = process.env.PORT || 3000;
  
 const homeStartingContent = "Hello and welcome to my blog website! My name is ajit kumar yadav, and I am excited to share my thoughts, ideas, and experiences with you. I created this blog to connect with like-minded individuals and build a community around our shared interests." ;
 const aboutContent = "On this blog, you will find content related to your interests. Whether you are a beginner or an expert in this field, I hope to provide valuable insights and perspectives that will inspire and inform you.";
@@ -109,11 +110,8 @@ app.get("/posts/:postId", function(req, res){
  
  
 });
-  let port = process.env.PORT;
-  if(port == null || port == ""){
-    port = 3000;
-  }
   
-app.listen(port, function() {
-  console.log("Server started successfully");
-});
+app.listen(port, function(req ,res){
+  console.log("Listening on port "+port);
+})
+  
